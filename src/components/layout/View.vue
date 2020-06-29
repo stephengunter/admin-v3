@@ -1,7 +1,7 @@
 <template>
-   <v-content id="layout-view" :style="style">
+   <v-main id="layout-view" :style="style">
       <router-view />
-   </v-content>
+   </v-main>
 </template>
 
 <script>

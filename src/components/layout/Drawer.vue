@@ -1,7 +1,7 @@
 <template>
    <v-navigation-drawer id="app-drawer" v-model="drawer" 
    width="260" app dark 
-   :expand-on-hover="expandOnHover" :right="$vuetify.rtl" mobile-break-point="960"
+   :expand-on-hover="expandOnHover" :right="$vuetify.rtl" mobile-breakpoint="960"
    v-bind="$attrs"
    >
 
