@@ -79,7 +79,7 @@ const actions = {
    },
    [LOGOUT](context) {
       context.commit(PURGE_AUTH);
-      return new Promise((resolve) => {
+      return new Promise(resolve => {
          setTimeout(() => {
             resolve(true);
          }, 500)
@@ -96,9 +96,7 @@ const actions = {
                context.commit(SET_USER, user); 
                resolve(true);
             }else{
-               //有token沒權限,保留token
-               let destroyToken = false;
-               context.commit(PURGE_AUTH, destroyToken);
+               context.commit(PURGE_AUTH);
                resolve(false);
             }            
          }else {
@@ -160,10 +158,10 @@ const mutations = {
    },
    [PURGE_AUTH](state) {
       state.isAuthenticated = false;
-      state.user = {};
-    
-      state.errors = new Errors();
+      state.user = null;
+      
       JwtService.destroyToken();
+      BaseService.setHeader(null);
    }
 };
 
